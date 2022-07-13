@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "794768681149",
+    "project_id": "rebi-store",
+    "storage_bucket": "rebi-store.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:794768681149:android:3eb6ef315dd183b0916fd4",
+        "android_client_info": {
+          "package_name": "net.rebi.rebi_store"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "794768681149-guekevev2kom0d89taittq13qpcljskk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCIm6c674ocU9SdIBNqiplbbuBZIZWKp4Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "794768681149-guekevev2kom0d89taittq13qpcljskk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

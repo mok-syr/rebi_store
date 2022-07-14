@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:rebi_store/registration_module/core/utils/extensions.dart';
 import 'package:rebi_store/tools/printer.dart';
 import 'package:rebi_store/tools/rebi_message.dart';
 import 'package:rebi_store/tools/validator.dart';
@@ -21,9 +22,9 @@ class ForgetPasswordButton extends StatelessWidget {
             onPressed: () {
               forgetPasswordDialog();
             },
-            child: const Text(
-              'نسيت كلمة المرور؟',
-              style: TextStyle(
+            child: Text(
+              'forget_password'.tra,
+              style: const TextStyle(
                 fontSize: 15,
               ),
             ),
@@ -36,21 +37,17 @@ class ForgetPasswordButton extends StatelessWidget {
   void forgetPasswordDialog() async {
     final GlobalKey<FormState> forgetPasswordFormKey = GlobalKey<FormState>();
     TextEditingController emailController = TextEditingController();
+    final AuthController authController = Get.find();
+
 
     Get.defaultDialog(
-      title: 'أدخل بريدك الإلكتروني',
+      title: 'enter_your_email'.tra,
       content: Form(
         key: forgetPasswordFormKey,
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            // const Text(
-            //   'أدخل بريدك الإلكتروني',
-            // ),
-            // const SizedBox(
-            //   height: 20,
-            // ),
-            RebiInput(
+                RebiInput(
               controller: emailController,
               textInputAction: TextInputAction.done,
               keyboardType: TextInputType.emailAddress,
@@ -64,16 +61,16 @@ class ForgetPasswordButton extends StatelessWidget {
           onPressed: () async {
             if (forgetPasswordFormKey.currentState!.validate()) {
               try {
-                AuthController().resetPassword(email: emailController.text.trim());
-                RebiMessage.success(msg: 'راجع بريدك الإلكتروني');
+                authController.resetPassword(email: emailController.text.trim());
+                RebiMessage.success(msg: 'reset_email_sent'.tra);
               } catch (e, s) {
-                RebiMessage.error(msg: 'حدث خطأ');
+                RebiMessage.error(msg: 'error_occurred'.tra);
                 Print.err(e, s);
               }
               Get.back();
             }
           },
-          child: const Text('متابعة'),
+          child: Text('continue'.tra),
         ),
       ],
     );

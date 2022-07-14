@@ -1,14 +1,9 @@
-import 'package:flutter/material.dart';
-
-import 'globals.dart';
-
-
-
+import 'package:get/get.dart';
 
 extension StringTranslate on String {
 
-  String get tr{
-    return this;
+  String get tra{
+    return tr;
   }
 }
 

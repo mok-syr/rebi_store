@@ -20,7 +20,8 @@ class EmailVerificationPage extends StatefulWidget {
 }
 
 class EmailVerificationPageState extends State<EmailVerificationPage> {
-  final AuthController _authController = AuthController();
+  final AuthController _authController = Get.find();
+
 
   @override
   Widget build(BuildContext context) {
@@ -32,8 +33,8 @@ class EmailVerificationPageState extends State<EmailVerificationPage> {
       child: Scaffold(
         appBar: AppBar(
           leading: const BackButton(),
-          title: const Text(
-            'تأكيد البريد الإلكتروني',
+          title:  Text(
+            'email_verification'.tra,
           ),
         ),
         body: Center(
@@ -50,7 +51,7 @@ class EmailVerificationPageState extends State<EmailVerificationPage> {
                 height: 60.0,
               ),
               Text(
-                'تم إرسال الرسالة البريدية إلى',
+                'email_sent_to'.tra,
                 textAlign: TextAlign.center,
                 style: mainStyle.copyWith(
                   fontSize: 20.0,
@@ -65,7 +66,7 @@ class EmailVerificationPageState extends State<EmailVerificationPage> {
               ),
               const Spacer(),
               rebiButton(
-                text: 'تم التأكيد'.tra,
+                text: 'verified'.tra,
                 onPressed: () async {
                   await _authController.reloadUser();
                   Get.off(() => const StartPage());
@@ -79,7 +80,7 @@ class EmailVerificationPageState extends State<EmailVerificationPage> {
                   _authController.sendEmailVerification();
                 },
                 child: Text(
-                  'إعادة ارسال البريد',
+                  'resend_email'.tra,
                   style: mainStyle,
                 ),
               )

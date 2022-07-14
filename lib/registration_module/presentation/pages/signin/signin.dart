@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:rebi_store/registration_module/core/utils/extensions.dart';
 import '../../../core/utils/validator.dart';
 import '../../components/components.dart';
 import '../../components/rebi_input.dart';
@@ -55,7 +56,7 @@ class _SigninPageState extends State<SigninPage> {
                     ///
                     /// Start Title
                     ///
-                    pageTitle('تسجيل الدخول'),
+                    pageTitle('signin'.tra),
                     const Spacer(),
 
                     ///
@@ -70,7 +71,7 @@ class _SigninPageState extends State<SigninPage> {
                         _email = value;
                       },
                       validator: Validator.requiredValidator,
-                      hintText: 'البريد الإلكتروني',
+                      hintText: 'email'.tra,
                       initialValue: 'oday.aw97@gmail.com',
                       keyboardType: TextInputType.emailAddress,
                       textInputAction: TextInputAction.next,
@@ -92,7 +93,7 @@ class _SigninPageState extends State<SigninPage> {
                         _password = value;
                       },
                       validator: Validator.requiredValidator,
-                      hintText: 'كلمة المرور',
+                      hintText: 'password'.tra,
                       initialValue: '123456',
                       keyboardType: TextInputType.visiblePassword,
                       textInputAction: TextInputAction.done,
@@ -115,9 +116,9 @@ class _SigninPageState extends State<SigninPage> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.start,
                         children: [
-                          const Text(
-                            'ليس لديك حساب؟',
-                            style: TextStyle(
+                           Text(
+                            'dont_have_account'.tra,
+                            style: const TextStyle(
                               fontSize: 15,
                               color: textColor1,
                             ),
@@ -126,9 +127,9 @@ class _SigninPageState extends State<SigninPage> {
                             onPressed: () {
                               authController.changePage(AuthPage.signup);
                             },
-                            child: const Text(
-                              'إنشاء حساب',
-                              style: TextStyle(
+                            child: Text(
+                              'create_account'.tra,
+                              style: const TextStyle(
                                 fontSize: 15,
                               ),
                             ),
@@ -172,9 +173,9 @@ class _SigninPageState extends State<SigninPage> {
                           } on FirebaseAuthException catch (e) {
                             setState(() {
                               if (e.code == 'unknown') {
-                                errorMessage = 'error_try_again'.tr;
+                                errorMessage = 'error_try_again'.tra;
                               } else {
-                                errorMessage = e.code.tr;
+                                errorMessage = e.code.tra;
                               }
                               isWaiting = false;
                             });
@@ -187,7 +188,7 @@ class _SigninPageState extends State<SigninPage> {
                           }
                         }
                       },
-                      text: 'تسجيل الدخول',
+                      text: 'signin'.tra,
                       isLoading: isWaiting,
                     ),
 

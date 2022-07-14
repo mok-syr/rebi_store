@@ -33,7 +33,8 @@ class SignupPageState extends State<SignupPage> {
   final TextEditingController _dayController = TextEditingController();
 
   bool isCompany = false;
-  final AuthController _authController = AuthController();
+  final AuthController _authController = Get.find();
+
 
   // bool isWaiting = false;
 
@@ -72,7 +73,7 @@ class SignupPageState extends State<SignupPage> {
                   ///
                   /// Start Title
                   ///
-                  pageTitle('إنشاء حساب'),
+                  pageTitle('create_account'.tra),
 
                   ///
                   /// End Title
@@ -89,7 +90,7 @@ class SignupPageState extends State<SignupPage> {
                       _name = value;
                     },
                     validator: Validator.requiredValidator,
-                    hintText: 'الاسم',
+                    hintText: 'name'.tra,
                     keyboardType: TextInputType.name,
                     textInputAction: TextInputAction.next,
                   ),
@@ -101,7 +102,7 @@ class SignupPageState extends State<SignupPage> {
                       _email = value;
                     },
                     validator: Validator.requiredValidator,
-                    hintText: 'البريد الإلكتروني',
+                    hintText: 'email'.tra,
                     keyboardType: TextInputType.emailAddress,
                     textInputAction: TextInputAction.next,
                   ),
@@ -113,7 +114,7 @@ class SignupPageState extends State<SignupPage> {
                       _password = value;
                     },
                     validator: Validator.requiredValidator,
-                    hintText: 'كلمة المرور',
+                    hintText: 'password'.tra,
                     keyboardType: TextInputType.visiblePassword,
                     textInputAction: TextInputAction.done,
                     obscureText: true,
@@ -127,8 +128,8 @@ class SignupPageState extends State<SignupPage> {
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        const Text(
-                          'لديك حساب؟',
+                        Text(
+                          'have_account'.tra,
                           style: TextStyle(
                             fontSize: 15,
                             color: textColor1,
@@ -138,8 +139,8 @@ class SignupPageState extends State<SignupPage> {
                           onPressed: () {
                             authController.changePage(AuthPage.signin);
                             },
-                          child: const Text(
-                            'تسجيل الدخول',
+                          child: Text(
+                            'signin'.tra,
                             style: TextStyle(
                               fontSize: 15,
                             ),
@@ -168,7 +169,6 @@ class SignupPageState extends State<SignupPage> {
                             userX: UserX(
                               name: _name,
                               email: _email!,
-                              bio: 'مرحباً, أنا مستخدم جديد.',
                               isVerified: false,
                             ),
                             password: _password!,
@@ -191,7 +191,7 @@ class SignupPageState extends State<SignupPage> {
                         }
                       }
                     },
-                    text: 'إنشاء حساب',
+                    text: 'create_account'.tra,
                     color: activeButtonColor,
                     isLoading: isWaiting,
                   ),

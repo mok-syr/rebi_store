@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../../layout/home_layout/home_layout.dart';
+import '../../../../screens/home/home_screen.dart';
+import '../../../../screens/home/size_config.dart';
 import '../../../../screens/splash_screen/splash_screen.dart';
 import '../../get_x/auth_controller.dart';
 import '../email_verification/email_verification.dart';
@@ -17,17 +19,20 @@ class StartPage extends StatefulWidget {
 }
 
 class _StartPageState extends State<StartPage> {
-  final AuthController _registerController = AuthController();
+  final AuthController _authController = Get.find();
+
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
+
     return Material(
       child: StreamBuilder<User?>(
-        stream: _registerController.userChangesStream,
+        stream: _authController.userChangesStream,
         builder: (context, snapshot) {
           if (snapshot.hasData) {
             if (snapshot.data!.emailVerified) {
-              return const HomeLayout();
+              return const HomeScreen();
             } else {
               if (snapshot.data!.email != null) {
                 return EmailVerificationPage(email: snapshot.data!.email!,);

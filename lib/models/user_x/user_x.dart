@@ -6,7 +6,6 @@ class UserX {
   String? phoneNumber;
   String? email;
   String? img;
-  String? bio;
   List<String>? favorites = [];
   bool? isVerified = false;
   bool isBlocked = false;
@@ -19,7 +18,6 @@ class UserX {
     this.phoneNumber,
     this.email,
     this.img,
-    this.bio,
     this.isVerified,
     this.registerDate,
     this.birthDate,
@@ -29,7 +27,6 @@ class UserX {
     'name': name,
     'email': email,
     'img': img,
-    'bio': bio,
     'registerDate': registerDate,
     'phoneNumber': phoneNumber,
     'isVerified': isVerified,
@@ -43,7 +40,6 @@ class UserX {
       name = map['name'];
       email = map['email'];
       img = map['img'];
-      bio = map['bio'];
       phoneNumber = map['phoneNumber'];
       isBlocked = map['isBlocked'] ?? false;
       registerDate = map['registerDate']?.toDate();
